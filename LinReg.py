@@ -32,9 +32,11 @@ m,b = best_fit_slope_and_intercept(X,y)
 line = m*X + b
 plt.scatter(X,y)
 plt.plot(X,line,c='y')
-print("R2 score: ",coefficient_of_determination(y,line))
-# Lets predict the y values using some dummy X values 
 
+# R2 score
+print("R2 score: ",coefficient_of_determination(y,line))
+
+# Lets predict the y values using some dummy X values 
 X_pred = np.array([4.5,10,14])
 y_pred = X_pred * m + b
 print(y_pred)
