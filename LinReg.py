@@ -20,12 +20,12 @@ m,b = best_fit_slope_and_intercept(X,y)
 # print(m,b)
 line = m*X + b
 plt.scatter(X,y)
-plt.plot(X,line)
+plt.plot(X,line,c='y')
 
 # Lets predict the y values using some dummy X values 
 
 X_pred = np.array([4.5,10,14])
 y_pred = X_pred * m + b
 print(y_pred)
-plt.scatter(X_pred,y_pred,c='r')
+plt.scatter(X_pred,y_pred,c='b')
 plt.show()
