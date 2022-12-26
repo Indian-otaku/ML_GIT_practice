@@ -2,7 +2,7 @@ from statistics import mean
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import style
-from sklearn.linear_model import LinearRegression
+import random
 
 style.use('ggplot')
 
