@@ -42,13 +42,3 @@ X_pred = np.array([4.5,10,14])
 y_pred = X_pred * m + b
 print(y_pred)
 plt.scatter(X_pred,y_pred,c='b')
-
-
-
-
-
-model = LinearRegression()
-model.fit([X],y)
-model.plot()
-
-plt.show()
