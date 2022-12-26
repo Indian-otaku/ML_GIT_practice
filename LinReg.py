@@ -16,12 +16,23 @@ def best_fit_slope_and_intercept(X,y):
 
     return m,b
 
+def sum_of_squares(y_true,y_line):
+    return sum((y_true-y_line)**2)
+
+def coefficient_of_determination(y_true,y_line):
+    y_mean_line = np.array([mean(y_true) for _ in y_true])
+    plt.plot(X,y_mean_line)
+    sum_of_squares_total = sum_of_squares(y_true,y_mean_line)
+    sum_of_squares_error = sum_of_squares(y_true,y_line)
+
+    return (1 - sum_of_squares_error / sum_of_squares_total)
+
 m,b = best_fit_slope_and_intercept(X,y)
 # print(m,b)
 line = m*X + b
 plt.scatter(X,y)
 plt.plot(X,line,c='y')
-
+print("R2 score: ",coefficient_of_determination(y,line))
 # Lets predict the y values using some dummy X values 
 
 X_pred = np.array([4.5,10,14])
