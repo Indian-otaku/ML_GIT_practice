@@ -1,13 +1,9 @@
 import numpy as np
 import warnings
 import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib import style
 from collections import Counter
 
-style.use('fivethirtyeight')
-
-data = {'r':[[1,2],[2,4],[1,3],[1,4]],'b':[[6,7],[8,6],[7,9],[5,8]]}
+# Branch to test out whether the KNN classifier works well using real data and compared it with sklearn kNN classifier
 
 def KNNclassifier(data, predict, k=3):
     if (len(data) >= k):
@@ -24,8 +20,6 @@ def KNNclassifier(data, predict, k=3):
 
     return vote_result
 
-[[plt.scatter(ii[0],ii[1],s=100,c=i) for ii in data[i]] for i in data]
-predict = [3,5]
-predict_class = KNNclassifier(data,predict,k=3)
-plt.scatter(*predict,s=200,c=predict_class)
-plt.show()
+df = pd.read_csv('breast-cancer-wisconsin.data',na_values='?')
+df.replace(np.nan,-99999,inplace=True)
+print(df.head(25)['Bare_Nuclei'])
