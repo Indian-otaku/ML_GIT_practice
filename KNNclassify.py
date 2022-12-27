@@ -17,14 +17,15 @@ def KNNclassifier(data, predict, k=3):
     for classes in data:
         for features in data[classes]:
             dist = np.linalg.norm(np.array(features)-np.array(predict))
-            distances.append(dist, classes)
+            distances.append([dist, classes])
 
-    vote_result = Counter(distances).most_common(1)[0][0]
+    vote = [i[1] for i in sorted(distances) [:k]]
+    vote_result = Counter(vote).most_common(1)[0][0]
 
     return vote_result
 
 [[plt.scatter(ii[0],ii[1],s=100,c=i) for ii in data[i]] for i in data]
 predict = [3,5]
 predict_class = KNNclassifier(data,predict,k=3)
-plt.scatter(*predict,s=150,c=predict_class)
+plt.scatter(*predict,s=200,c=predict_class)
 plt.show()
